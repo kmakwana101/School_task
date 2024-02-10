@@ -6,6 +6,7 @@ const uuid = require('uuid');
 
 exports.add = async (req, res) => {
     try {
+        console.log(req.body)
         req.body.seat_no = Number(uuid.v4().replace(/\D/g, '').slice(0, 10))
 
         //school === school_ID
@@ -17,6 +18,7 @@ exports.add = async (req, res) => {
         if (!name || !school || !maths || !science || !english || !physics || !seat_no) throw new Error('please enter valid Fields')
 
         const createMarks = await MarksModel.create({ maths, science, english, physics })
+        console.log(createMarks)
 
         const data = await StudentModel.create({
             name,
@@ -77,6 +79,7 @@ exports.add = async (req, res) => {
 
 exports.show = async (req, res) => {
     try {
+        // console.log(req.body)
         let data, message;
 
         if (req.query.id) {
