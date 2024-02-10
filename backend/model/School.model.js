@@ -1,4 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const StudentModel = require('./Student.model');
+const TeacherModel = require('./Teacher.model');
 const { Schema } = mongoose;
 
 const SchoolSchema = new Schema({
@@ -15,20 +17,6 @@ const SchoolSchema = new Schema({
 
 });
 
-SchoolSchema.pre('findOneAndDelete', async function(next) {
-  const school = this;
-  const studentIds = school.students;
-  const teacherIds = school.teachers;
 
-  try {
-    
-    await StudentModel.deleteMany({ _id: { $in: studentIds } });
-    await TeacherModel.deleteMany({ _id: { $in: teacherIds } });
-
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
 
 module.exports = mongoose.model('School',SchoolSchema)

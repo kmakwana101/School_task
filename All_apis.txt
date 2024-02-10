@@ -1,0 +1,46 @@
+
+======= SCHOOL ROUTES ========
+
+METHOD => POST => http://localhost:3000/api/school/add
+METHOD => GET => http://localhost:3000/api/school/show  // ALL DATA get
+METHOD => GET => http://localhost:3000/api/school/show?id=idasdfsjdh2ij34l3  // SIGNLE DATA get
+METHOD => PATCH => http://localhost:3000/api/school/update?id=idasdfsjdh2ij34l3  // update DATA
+METHOD => DELETE => http://localhost:3000/api/school/update?id=idasdfsjdh2ij34l3  // DELETE DATA
+
+school add required fields
+{
+    "name": "P.P. Savani School",
+    "city": "surat"
+}
+
+======= STUDENT ROUTES ========
+
+METHOD => POST => http://localhost:3000/api/student/add
+METHOD => GET => http://localhost:3000/api/student/show  // ALL DATA get
+METHOD => GET => http://localhost:3000/api/student/show?id=idasdfsjdh2ij34l3  // SIGNLE DATA get
+METHOD => PATCH => http://localhost:3000/api/student/update?id=idasdfsjdh2ij34l3  // update DATA
+METHOD => DELETE => http://localhost:3000/api/student/update?id=idasdfsjdh2ij34l3  // DELETE DATA
+
+student add required fields
+{
+    "maths": 82,
+    "science": 63,
+    "english": 51,
+    "physics": 39,
+    "name": "khushal Makwana",
+    "school": "----school id----"
+}
+
+======= TEACHER ROUTES ========
+
+METHOD => POST => http://localhost:3000/api/teacher/add
+METHOD => GET => http://localhost:3000/api/teacher/show  // ALL DATA
+METHOD => GET => http://localhost:3000/api/teacher/show?id=idasdfsjdh2ij34l3  // SIGNLE DATA
+METHOD => PATCH => http://localhost:3000/api/teacher/update?id=idasdfsjdh2ij34l3  // update DATA
+METHOD => DELETE => http://localhost:3000/api/teacher/update?id=idasdfsjdh2ij34l3  // DELETE DATA
+
+teacher add required fields
+{
+    "name": "vivek shah",
+    "school": "----school id----"
+}
