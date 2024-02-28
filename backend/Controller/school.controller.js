@@ -26,6 +26,8 @@ exports.add = async (req, res) => {
 
 exports.show = async (req, res) => {
     try {
+        // a = 5
+        // console.log(a)
         let data;
 
         if (req.query.id) {

@@ -3,20 +3,20 @@ const { Schema } = mongoose;
 
 
 const StudentSchema = new Schema({
-    name: {
+    name : {
         type: String,
         required: true
     },
-    seat_no: {
+    seat_no : {
         type: Number,
         required: true,
         unique: true
     },
-    school: {
+    school : {
         type: mongoose.Schema.Types.ObjectId,
         ref: "School"
     },
-    marks: {
+    marks : {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'marks'
     }

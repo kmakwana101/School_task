@@ -7,8 +7,8 @@ const uuid = require('uuid');
 exports.add = async (req, res) => {
     try {
         console.log(req.body)
-        req.body.seat_no = Number(uuid.v4().replace(/\D/g, '').slice(0, 10))
 
+        req.body.seat_no = Number(uuid.v4().replace(/\D/g, '').slice(0, 10))
         //school === school_ID
 
         const { name, school, maths, science, english, physics, seat_no } = req.body
@@ -18,12 +18,16 @@ exports.add = async (req, res) => {
         if (!name || !school || !maths || !science || !english || !physics || !seat_no) throw new Error('please enter valid Fields')
 
         const createMarks = await MarksModel.create({ maths, science, english, physics })
+
         console.log(createMarks)
+        const isSchool = await schoolModel.findById(school)
+
+        if(!isSchool) throw new Error('please enter valid school')
 
         const data = await StudentModel.create({
             name,
             school,
-            marks: createMarks?._id,
+            marks : createMarks?._id,
             seat_no
         })
 
@@ -116,7 +120,7 @@ exports.update = async (req, res) => {
 
         const { name, school, maths, science, english, physics, seat_no } = req.body;
 
-        const student = await StudentModel.findById(req.query.id);
+        const student = await StudentModel.findById(req.query.id).populate('marks');
 
         if (!student) {
             throw new Error('Student not found.');
